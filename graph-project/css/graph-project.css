@@ -1,0 +1,225 @@
+.image{
+	height: 350px;
+	width:400px;
+	display:block;
+}
+
+.image-graph{
+	width:30vw;
+	height:65vh;
+	display:block;
+}
+
+#final-image{
+	height:400px;
+	width:400px;
+	display:block;
+}
+
+nav {
+	position:fixed;
+	top:0;
+	left:0;
+	height: 100%;
+    width:20%;
+    border-right: 2px solid black;
+
+}
+
+nav ul{
+  height:100%;
+  overflow-y:auto;
+  overflow-x:hidden;
+  padding:0;
+  margin:0;
+  background-color:#aae6e4;
+}
+
+nav li{
+	border-top: 2px solid black;
+	list-style:none;
+	padding:30px;
+	margin:0px;
+	width: 100%;
+	display:block;
+	position:relative;
+	background-color:#aae6e4;
+	font-family: 'Quicksand', sans-serif;
+	font-size:150%;
+
+}
+
+nav #last_li{
+	border-bottom: 2px solid black;
+}
+
+nav a{
+  display: block;
+  padding: 10px 30px;
+  color: #4d4e53;
+  text-decoration: none;
+  cursor: pointer
+}
+
+nav li:hover{
+	background-image:linear-gradient(#157d7a,#30c7c2);
+}
+
+nav li:active{
+	background-color: #30c7c2;
+}
+
+main,h1{
+	float:right;
+	width:80%;
+	margin:0 auto;
+}
+
+h1{
+	text-align:center;
+	font-size:300%;
+	color:#157d7a;
+	font-family: 'IM Fell French Canon', serif;
+}
+
+
+
+h2{
+	text-align:center;
+	font-size:250%;
+	color:#157d7a;
+	font-family: 'IM Fell French Canon', serif;
+	background-color:#a9f5f3;
+	border:1px solid #02615e;
+	border-radius:5px;
+	padding:10px;
+
+}
+
+h3{
+	font-size:200%;
+	color:#157d7a;
+	font-family: 'IM Fell French Canon', serif;
+	text-decoration:underline;
+}
+
+.process{
+	border: 2px solid #02615e;
+	background-color:#cef2f1;
+}
+
+.process ul li{
+	font-size:100%;
+}
+
+.process p{
+	text-align:center;
+	text-decoration:underline;
+
+}
+
+.process ol li{
+	text-indent:0px;
+	list-style:upper-roman;
+}
+
+.process ul li{
+	list-style:lower-roman;
+	text-indent:0px;
+}
+
+#intro-example,#intro-complete,#intro-tree{
+	display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    border-bottom:2px solid #02615e;
+}
+
+#intro-vertices,#intro-weight,#intro-final{
+	display:flex;
+    flex-direction:row-reverse;
+    justify-content:center;
+    align-items:center;
+    border-bottom:2px solid #02615e;
+}
+
+#exampletwo-intro{
+	display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    border-bottom:2px solid #02615e;
+
+}
+
+#html-images, #css-images{
+	display:flex;
+    flex-direction:row-reverse;
+    justify-content:center;
+    align-items:center;
+    border-bottom:2px solid #02615e;
+}
+
+#exampletwo-final{
+	display:flex;
+    flex-direction:row-reverse;
+    justify-content:center;
+    align-items:center;
+    border-bottom:2px solid #02615e;
+
+}
+
+main p, main li, main ul{
+	font-family: 'Karla', sans-serif;
+	text-indent:30px;
+	line-height:30px;
+	font-size:120%;
+	text-align:justify;
+
+}
+
+.definition{
+	text-decoration:underline;
+	font-size:110%;
+	font-weight:bold;
+	text-indent:0px;
+
+}
+
+#first-list li, #applicationtwo-list li, #notes li{
+	font-size:100%;
+}
+
+#kruskal-algorithm li{
+	font-size:80%;
+}
+
+.html{
+	margin:10px;
+	height:600px;
+	width:550px;
+
+}
+
+.css{
+	margin:10px;
+	height:500px;
+	width:350px;
+}
+
+#references li{
+	margin:20px;
+}
+
+footer{
+	background-color:#bae6e6;
+	width:100%;
+	border-radius:5px;
+}
+
+footer p{
+	text-indent:0px;
+	text-align:center;
+	color:#424242;
+}

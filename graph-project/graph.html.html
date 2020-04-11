@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head lang='en'>
+	<meta charset = 'UTF-8'>
+	<title>Graph Theory Project</title>
+	<link rel='stylesheet' href='css/graph-project.css'>
+	<link href="https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon&family=Inconsolata&family=Karla&family=Quicksand&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<header>
+		<h1>Application of Graph Theory in Renewable energies</h1>
+		<nav>
+			<ul>
+				<li><a href='#intro'>Introduction</a></li>
+				<li><a href='#applicationone'>Application 1</a></li>
+				<li><a href='#applicationtwo'>Application 2</a></li>
+				<li><a href='#conclusion'>Conclusion</a></li>
+				<li><a href='#behind-the-scene'>Behind the scene</a></li>
+				<li id='last_li'><a href='#references'>References</a></li>
+			</ul>
+		</nav>
+	</header>
+    
+    <main>
+		<section id='intro'>
+			<h2>Introduction</h2>
+			<p> Graph theory is the study of graphs, which are mathematical structures that are used to modelize a situation using vertices and edges</p>
+			<p> the science of graph theory can be applied in many fields, ranging from chemistry (the structure of a molecule can be represented as a graph with the atoms being the vertices and the bonds being the edges) to energy.</p>
+			<p> The usage of graph theory in the field of energy engineering has been growing lately for many reasons. This is seen from the increase of shcolar papers that relate the two topics to help solve a problem. One of the main reasons for applying graph theory to renewable energies is that the latter relies heavily on efficiency and cost reduction. At the same time, the science of graph theory engulfs many algorithms and strategies whose objectives are mainly to visualize a problem and give an effecient and cost-friendly solution, and that is why the interconnectivity of graph theory with renewable energy engineering was bound to happen eventually.
+			<p>In this website, we will be discussing two applications of graph theory in the field of energy, and more specifically, renewable energies. In this field, graph theory is used to increase efficiency and give simple representations of circuits.</p>
+			<ul id='first-list'>The applications we will be discussing are:
+				<li> Application 1: Cost efficient way to connect wind turbines in a wind field</li>
+				<li> Application 2:</li>
+			</ul>
+		</section>
+
+		<section id='applicationone'>
+			<h2>Cost Efficient inter-connection of wind turbines</h2>
+			<p>On-shore wind farms are very large pieces of farm land where large scale wind turbines (140 meteres long with 55 meters blades) are positioned with the objective of produing electricity. The number of wind farms is gradually increasing nowadays, with the largest being Gansu wind farm in China, which has a capacity of 6 GW.</p>
+			<p>On shore wind farms have been criticized for their impact on the landscape: Wind turbines are very large compared to other power sources, which means wind farms have to cover a huge chunk of land, usually in rural areas.</p>
+			<p>This raises a separate type of problem for engineers. Since wind turbines in wind farms are not close together, their inter connectivity, and wiring, requires special attention because it becomes a costly matter if not taken into account. In fact, wind turbines have to be connected to the power station so their power can be harnessed, and in large fields such as wind farms, there are infinite ways to connect the wind turbines to each other and to the power station.</p>
+			<p> Therefore, the problem to solve becomes: How do we connect all wind turbines in a wind field to the power station in the most cost-efficient manner?</p>
+			<p> we will be using graph theory to solve this problem, and more specifically, trees: In graph theory, a tree is an undirected, connected and acyclic graph. In other words, a connected graph that does not contain even a single cycle is called a tree. So our objective becomes to find a tree structure that connects all our wind turbines with the smallest weight. To rephrase, we are looking for the minimum spanning tree.</p>
+
+			<div class='process' id='process'>
+				<p> The process of finding the minimum spanning tree for a wind farm is:</p>
+				<ol>
+					<li>Create your graph using the wind turbines as vertices. The distance between two wind turbines is the weight of the graph</li>
+					<li>Create a complete graph (a graph where all the vertices are connected) where all the possibilities are present</li>
+					<li>Apply Kruskal's algorithm on the complete graph
+						<ul id='kruskal-algorithm'>
+							<li>find the edge with the smallest weight</li>
+							<li>find the edge with the second smallest weight (it doesn't have to be connected to the first)</li>
+							<li>Repeat until all the vertices are covered. Make sure to skip any edge that creates a cycle within your graph</li>
+						</ul>
+					</li>
+					<li> the resultant tree is the minimum spanning tree. It is also the most cost-efficient way to connect the wind turbines to the power station</li>
+				</ol>
+			</div>
+
+			<div class='example'>
+				<h3>Example:</h3>
+
+				<div id='intro-example'>
+					<p> We will try to explain this process using a real life example, and more specifically using Whitelee Wind Farm, which is the largest on shore wind farm in the United Kingdom. According to their website, Whitelee has 215 wind turbines that generate up to 539 megawatts of electricity, enough to power almost 300 000 homes.<br>
+					we will be applying the cost efficient method of inter connecting wind turbines on a small portion of the farm using our process.<br>
+					On the right, we have an aerial view of a portion of the wind farm that we will be working on</p>
+
+					<figure>
+						<img class='image' src='images/wind-turbines.jpg'>
+					</figure>
+				</div>
+
+                <div id='intro-vertices'>
+					<p>for the sake of the example, we are going to take a small portion of the image. We also placed red circles on each wind turbine on the image. These points represent the vertices of our graph </p>
+
+					<figure>
+						<img class='image' src = 'images/wind-turbine-vertices.jpg'>
+					</figure>
+				</div>
+
+                <div id='intro-complete'>
+					<p>As we can see, we have 8 wind turbines, therefore, we have 8 vertices. The next step is to create the complete graph by creating an edge between all the vertices. This step is important because it helps us visualize all the possible outcomes, thus making it easier to pick the best one </p>
+
+					<figure>
+						<img class = 'image' src='images/wind-turbine-vertices-edges.jpg'>
+					</figure>
+				</div>
+  
+                <div id="intro-weight">
+					<p>The next step is optional: we rearranged the graph to make it easier to understand, we did this using Adobde illustrator. Furthermore, we associated a weight to each edge, whose value is the distance separating the two wind turbines (or vertices).<br>
+					For the sake of simplification, we picked a reference distance (which has a value of 1) so that each distance is calculated using a cross product. This was done thanks to an online software called eleif.net. Here is the result </p>
+
+					<figure>
+						<img class='image-graph' src='images/graph-form.jpg'>
+					</figure>
+				</div>
+            
+                <div id='intro-tree'>
+					<p> The next step is to apply Kruskal's algorithm on the graph following the steps explained in the <a href='#process'>process</a>. We obtain the following tree:</p>
+
+					<figure>
+						<img class='image-graph' src='images/tree-form.jpg'>
+					</figure>
+				</div>
+ 
+                <div id='intro-final'>
+					<p>Finally, we conclude by returning the vertices to their initial position as they are placed in the wind farm. we can calculate the weight (in reference to the initial distance of value 1)<br>
+					Weight = 1 + 1.5 + 1.8 + 2.07 + 2.08 + 4.19 + 4.46 = 17.1 . We can multiply this distance by our reference distance to get the actual total length of wiring necessary to connect all the turbines to each other </p>
+
+					<figure>
+						<img class = 'image' src='images/final-tree.jpg'>
+					</figure>
+				</div>
+
+			</div>
+
+		</section>
+
+		<section id='applicationtwo'>
+			<h2>Graph Representation of electrical networks</h2>
+			<p> In this application, we will link graph theory to the physics of electrical circuits. More specifically, we will use graphs to represent electrical networks. This strategy can assist us in the calculations we conduct on a circuit. For example, if we are interested in a mesh of a network, we can just take the subgraph of the equivalent graph that represents the mesh and apply the necessary maths on that unique part.</p>
+			<p>The problem to solve is: How can we use directed graphs to represent an electrical network?</p>
+			<p> We will start by defining some electrical network terms that we will need later to further understand the application</p>
+			<ul id='applicationtwo-list'>
+				<li><span class='definition'>Branch:</span> single path conataining one circuit element, which connects one node to any other node. <br>
+				In the graph representation, a branch is represented by an edge. The weight of the edge will be the reactance of the component.</li>
+				<li><span class='definition'>Node:</span> A point at which two or more circuit element have a common connection<br>
+					the number of branches incident to the node is known as the degree of the node. In our graph representation, we will use vertices to represent nodes.</li>
+				<li><span class='definition'>Current direction:</span> In an electrical circuit, the current follows a strict path according to the orientation of the generator. In our case, we will represent the current direction by using directed edges.</li>
+			</ul>
+			<p>Before moving to the process, there is a couple of details that we have to keep in mind</p>
+			<ul id='notes'>
+				<li>the number of branches in a circuit will be equal to the number of vertices</li>
+				<li>there are multiple graph representations for the same circuit, as long as the topology of the network remains the same</li>
+			</ul>
+			<p>It is important to know that there are different types of graph representations for electrical networks.For example, we can represent a circuit by a graph with labeled vertices. In this case, the label of the vertix corresponds to the voltage at the specific node (after the different voltage drops). Another possible example is representing the components as the vertices.</p>
+
+			<div class='process'>
+				<p> the process of finding the corresponding graph of an electrical circuit</p>
+				<ol>
+					<li>Start by drawing your vertices. You must have as much vertices as there are nodes in the circuit.</li>
+					<li>Link the vertices using edges, each edge corresponds to an electric component.<br>
+					if there are two components in one branch, place an extra vertix (node) between them.</li>
+					<li>for each component, calculate it's reactance. The reactance will correspond to the weight of the component</li>
+					<li>Replace the sources by their internal resistance</li>
+					<li>direct each edge according to the direction of the current in the original circuit</li>
+				</ol>
+			</div>
+
+			<div class='example'>
+				<h3>Example:</h3>
+
+				<div id='exampletwo-intro'>
+					<p> We will try to explain the process using an example of the circuit on the right. It contains a voltage source with an internal resistance R, three resistors that have the value R1, R2 and R3 respectively, an inductance L and a capacitor C. This circuit has components that are both in series and in parallel to help visualize the effectiveness of the method</p>
+					<figure>
+						<img class='image' src='images/electrical-circuit.jpg'>
+					</figure>
+				</div>
+
+				<div id='exampletwo-final'>
+					<p>First, we start by drawing the vertices 1 through 5, each vertix representing a node from the circuit. Note that there is a node between the voltage source and its internal resistance, therefore, we have the possibility to add it to our circuit or not. In our case, we won't be using (but it helps to show that there are multiple representations for a single circuit).<br>
+					Next, we will link the vertices with edge. Each edge represents a component, therefore, we must have 6 edges.<br>
+				    After that, we will add the weights of the edges which represent the reactance of the components.<br>
+				    Finally, we will add the directions of the edges following how the current flows in the circuit.<br>
+				    You should end up with the following graph</p>
+				    <figure>
+				    	<img id='final-image' src='images/final-graph.jpg'>
+				    </figure>
+				</div>
+			</div>
+		</section>
+
+		<section id='conclusion'>
+			<h2>Conclusion</h2>
+			<p>In conclusion, there are many applications of graph theory in the field of renewable energies, and we have seen two applications: the first application explains how we can use Kruskal's minimum spanning tree algorithm to connect wind turbines in a wind farm with the most cost efficient method, while the second developed on the representation of electrical circuits with directed graphs.</p>
+			<p>It is important to know that the usage of graph theory in the field of science in general is growing. We can see scholar papers that apply this field to chemistry, physics, biology, etc...</p>
+			<p>If we focus specifically on the field of renewable energies, there are other applications of graph theory that we did not cover in our research. One example would be the management of microgrids and the reduction of their losses through graph representation.</p>
+		</section>
+
+		<section id='behind-the-scene'>
+			<h2>Behind The Scene</h2>
+			<p>In this section, we will be taking a closer look of the process of making the website.<br>
+			   this website was coded on the software sublime text, using the HTML5 language for the content and CSS3 language for the design.<br>
+			   here are a couple of screenshots of the HTML and the css codes.<br>
+			   In summary, the HTML screenshots include the metadata, the navigation bar, the introduction and the example for the first application.<br>
+			   the CSS screenshots include our design decisions about the navigation bar (fixed on the left top part of the screen) and the headers.
+			</p>
+
+			<figure id='html-images'>
+				<img class='image html' src='images/code1-html.jpg'>
+				<img class='image html' src='images/code2-html.jpg'>
+			</figure>
+ 
+			<figure id='css-images'>
+				<img class='css' src='images/code1-css.jpg'>
+				<img class='css' src='images/code2-css.jpg'>
+			</figure>
+
+			<p>Other softwares were used to make this website. We used Adobe illustrator to create the graphs for the examples. We also used a free online software called eleif to measure the distances between the wind turbines for the first example.</p>
+		</section>
+
+		<section id='references'>
+			<h2>References</h2>
+			<ul>
+				<li>Lairenlakpam, J. (2013, September 17). EE-304 Electrical Network Theory [Class Notes1] - 2013. Retrieved from https://www.slideshare.net/JoyprakashLairenlakpam/ee304-20130802-graph </li>
+				<li>Whitelee Windfarm. (2019, July 11). Retrieved from https://www.whiteleewindfarm.co.uk/whitelee-windfarm-about-us</li>
+				<li>Wind farm. (2020, March 26). Retrieved from https://en.wikipedia.org/wiki/Wind_farm</li>
+			</ul>
+		</section>
+
+		<footer>
+			<p>Iheb Ben Sassi, Mohamed Alkhalili, Salma Amami<br>MATH348: graph theory and application<br>Thank you for your attention</p>
+		</footer>
+
+	</main>
+</body>
+
+</html>
